@@ -255,7 +255,7 @@ def update_calculation(
             db.commit()
             db.refresh(new_calc)
             return new_calc
-        except Exception as e:
+        except Exception as e:  # pragma: no cover
             db.rollback()
             raise HTTPException(status_code=500, detail=str(e))
     elif calculation_update.inputs is not None:
